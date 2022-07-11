@@ -1,4 +1,4 @@
-title: Detection of Malicious PowerShell Execution via Sqlps.exe
+title:  SQLPS PowerShell Download and Execution
 status: experimental
 description: This rule detects execution of a PowerShell code through the sqlps.exe utility, which is included in the standard set of utilities supplied with the MSSQL Server, to Download files or spawn a child process of powershell.exe using 'IEX'. Script blocks are not logged in this case, so this utility helps to bypass protection mechanisms based on the analysis of these logs.
 references:
@@ -24,7 +24,7 @@ detection:
     selection2:
         OriginalFileName|endswith: 'sqlps.exe'
     selection3:
-        CommandLine|contains: 
+        CommandLine|contains|all: 
         -  'DownloadString'
         -  'IEX'
     filter: 

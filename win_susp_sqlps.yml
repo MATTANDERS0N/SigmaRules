@@ -29,6 +29,6 @@ detection:
         -  'IEX'
     filter: 
       ParentImage|endswith: 'sqlagent.exe'
-    condition: selection1 or selection2 and selection3 and not filter
+    condition: (selection1 or selection2) and selection3 and not filter
 falsepositives: 
   -  unknown

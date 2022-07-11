@@ -22,7 +22,7 @@ detection:
     selection1:
         Image|endswith: 'sqlps.exe'
     selection2:
-        OriginalFileName|endswith: '\sqlps.exe'
+        OriginalFileName|endswith: 'sqlps.exe'
     selection3:
         CommandLine|contains: 
         -  'DownloadString'

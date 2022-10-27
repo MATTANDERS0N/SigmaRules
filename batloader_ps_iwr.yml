@@ -1,0 +1,22 @@
+title: Batloader Powershell WebRequest
+status: experimental
+description: Detects batloader PowerShell Invoke-WebRequest commands.
+references:
+  - https://twitter.com/1ZRR4H/status/1575364101148114944
+date: 2022/10/26
+logsource:
+   category: process_creation
+   product: windows
+detection:
+   selection:
+      CommandLine|contains|all:  
+         - 'Invoke-WebRequest'
+         - 'servername=msi'
+
+   condition: selection
+falsepositives:
+   - Unknown
+level: high
+tags:
+   - attack.execution
+   - attack.t1059.001
